@@ -19,8 +19,6 @@ const getJail = () => {
 	return client.channels.find(ch => ch.name === 'Johnny Jail');
 }
 
-// const channel = client.channels.find(ch => ch.name === 'Johnny Jail');
-
 client.on('message', message => {
   // Voice only works in guilds, if the message does not come from a guild,
   // we ignore it
