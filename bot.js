@@ -10,24 +10,30 @@ client.on('rateLimit', rateLimit => {
 	console.log(rateLimit);
 });
 
+const getJohnny = () => {
+	// When testing you can replace the string with your user name
+	return client.guilds.first(1)[0].members.find(member => member.user.username === 'Chief Teeth');
+}
+
+const getJail = () => {
+	return client.channels.find(ch => ch.name === 'Johnny Jail');
+}
+
+// const channel = client.channels.find(ch => ch.name === 'Johnny Jail');
+
 client.on('message', message => {
   // Voice only works in guilds, if the message does not come from a guild,
   // we ignore it
 	if (!message.guild || message.author.bot) return;
 
 	if (message.content === '!jail' && message.channel) {
-		// TODO: Does it need to join?
-		message.member.voiceChannel.join().then(connection => {
-			// Hard coded id for "test" voice channel. 
-			// TODO: search through channels for the right one based on name
-			// TODO: x, y are placeholders for what I assume are error and success args. Not sure which is which (care?)
-			message.member.setVoiceChannel(message.guild.channels.get('783173759455461386')).then((x, y) => {
-				console.log(x);
-				console.log(y);
-			});
-		});
-	} 
-
+		// First get the channel
+		const channel = getJail();
+		// Then get user
+		const johnny = getJohnny();
+		// Then set the voice channel - Note: this is async, but not doing anything with the promise for now
+		johnny.setVoiceChannel(channel);		
+	}
 });
 
 client.login(auth.token);
