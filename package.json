@@ -1,0 +1,11 @@
+{
+	"name": "JohnnyJailDiscordBot",
+	"version": "1.0.0",
+	"description": "Johnny has been a bad boy",
+	"main": "bot.js",
+	"author": "bradley gulli",
+	"dependencies": {
+		"discord.js": "^11.5.1",
+		"node-opus": "^0.3.2"
+	}
+}
