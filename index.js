@@ -11,8 +11,8 @@ const getSecret = async () => {
 
 	const STS = new AWS.STS({ apiVersion: '2011-06-15' });
 	const credentials = await STS.assumeRole({
-		RoleArn: 'arn:aws:iam::214600412822:role/service-role/JohnnyJail-role-9duf3o0j',
-		RoleSessionName: 'ExampleSkillRoleSession'
+		RoleArn: '', // Remove role for privacy
+		RoleSessionName: 'ChannelMoverRoleSession'
 	}, (err, res) => {
 		if (err) {
 			console.log('AssumeRole FAILED: ', err);
