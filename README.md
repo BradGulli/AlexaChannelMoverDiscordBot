@@ -1,2 +1,2 @@
-# JohnnyJailDiscordBot
-Johnny has been a bad boy
+# AlexaChannelMoverDiscordBot
+Use Alexa to move users between Discord channels with voice.

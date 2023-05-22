@@ -1,0 +1,185 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "channel mover",
+      "modelConfiguration": {
+        "fallbackIntentSensitivity": {
+          "level": "LOW"
+        }
+      },
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorldIntent",
+          "slots": [],
+          "samples": [
+            "hello",
+            "how are you",
+            "say hi world",
+            "say hi",
+            "hi",
+            "say hello world",
+            "say hello"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "jail",
+          "slots": [],
+          "samples": [
+            "go to johnny jail",
+            "go to jail",
+            "send",
+            "send johnny to johnny jail",
+            "send johnny to jai",
+            "send to johnny jail",
+            "send to jail"
+          ]
+        },
+        {
+          "name": "name",
+          "slots": [
+            {
+              "name": "user",
+              "type": "AMAZON.SearchQuery"
+            },
+            {
+              "name": "channel",
+              "type": "AMAZON.SearchQuery",
+              "samples": [
+                "to {channel}"
+              ]
+            }
+          ],
+          "samples": [
+            "move {user}",
+            "send {user} ",
+            "do {user}"
+          ]
+        },
+        {
+          "name": "shadow",
+          "slots": [
+            {
+              "name": "user",
+              "type": "AMAZON.SearchQuery"
+            }
+          ],
+          "samples": [
+            "send {user} to shadow",
+            "send {user} to shadow realm",
+            "send {user} to the shadow realm"
+          ]
+        },
+        {
+          "name": "moveChannel",
+          "slots": [
+            {
+              "name": "channelName",
+              "type": "AMAZON.SearchQuery"
+            },
+            {
+              "name": "destChannel",
+              "type": "AMAZON.SearchQuery"
+            }
+          ],
+          "samples": [
+            "do channel {channelName}",
+            "send channel {channelName}",
+            "move channel {channelName}"
+          ]
+        }
+      ],
+      "types": []
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "name",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "user",
+              "type": "AMAZON.SearchQuery",
+              "confirmationRequired": false,
+              "elicitationRequired": false,
+              "prompts": {}
+            },
+            {
+              "name": "channel",
+              "type": "AMAZON.SearchQuery",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1158474618136.915242348117"
+              }
+            }
+          ]
+        },
+        {
+          "name": "moveChannel",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "channelName",
+              "type": "AMAZON.SearchQuery",
+              "confirmationRequired": false,
+              "elicitationRequired": false,
+              "prompts": {}
+            },
+            {
+              "name": "destChannel",
+              "type": "AMAZON.SearchQuery",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Slot.635876747175.1559202622786"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.1158474618136.915242348117",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What channel do you want to send to?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.635876747175.1559202622786",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What channel should I send to?"
+          }
+        ]
+      }
+    ]
+  }
+}
